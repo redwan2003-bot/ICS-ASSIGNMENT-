@@ -4,18 +4,25 @@ int main() {
     int N;
     printf("N: ");
     scanf("%d", &N);
+    if (N > 0) {
+        int a = 1, b = 1;
+        if (N >= 1) {
+            printf("%d\n", a);
+        }
+        if (N >= 2) {
+            printf("%d, %d", a, b);
+        }
+        for (int i = 3; i <= N; ++i) {
+            int nextTerm = a + b;
+            printf(", %d", nextTerm);
+            a = b;
+            b = nextTerm;
+        }
 
-    int a = 0, b = 1, c;
-    printf("Fibonacci series up to %d terms: ", N);
-    for (int i = 1; i <= N; ++i) {
-        printf("%d, ", a);
-        c = a + b;
-        a = b;
-        b = c;
+        printf("\n");
+    } else {
+        printf("N (positive integer).\n");
     }
-
-    printf("\n");
 
     return 0;
 }
-
